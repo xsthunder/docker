@@ -3,6 +3,11 @@ FROM node:14
 # Create app directory
 WORKDIR /usr/src/app
 
+# for gfw
+RUN yarn config set registry https://registry.npm.taobao.org
+
+RUN npm config set registry http://registry.npm.taobao.org
+
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
