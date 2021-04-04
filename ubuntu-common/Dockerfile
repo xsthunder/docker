@@ -10,4 +10,6 @@ RUN apt install python-is-python3 -y
 RUN apt install python3-pip -y
 RUN pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
-RUN apt install vim wget jq
+RUN apt install vim wget jq -y
+
+RUN apt install tree -y
