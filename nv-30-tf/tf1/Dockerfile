@@ -8,13 +8,14 @@
 FROM nvcr.io/nvidia/tensorflow:20.11-tf1-py3
 
 # setup my vim
+# download from https://codeload.github.com/amix/vimrc/zip/refs/heads/master
 COPY ./vimrc-master /root/.vim_runtime
 RUN sh /root/.vim_runtime/install_awesome_vimrc.sh
 
 # for gfw
 RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
 
-RUN  apt-get clean
+RUN apt-get clean
 RUN apt-get update
 RUN apt install tree -y
 
@@ -31,7 +32,7 @@ RUN yes | pip install tqdm scikit-learn nltk rouge tqdm numpy bert4keras==0.9.9
 # sshd security
 RUN sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config
 
-# add my labtop
+# add my labtop ssh pub key
 RUN mkdir /root/.ssh
 COPY ./authorized_keys /root/.ssh
 
