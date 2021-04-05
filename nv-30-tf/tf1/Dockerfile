@@ -1,9 +1,15 @@
+# description
 # based on ubuntu 18.04.2
 # use for 91 machine with rtx 3090
 # where to find base container https://ngc.nvidia.com/catalog/containers/nvidia:tensorflow
 # where to find docker info https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel_20-11.html#rel_20-11
 # provide py3, tf1.5
 # cuda CUDA 11.1.0 for rtx 3090
+
+# usage
+# specify a volume for vscode-server to avoid redownloding vscode when connect to docker by vscode
+# alias docker-start-tf1="docker run -v tf1-vscode-server:/root/.vscode-server --gpus all --restart=always --name     tf1 -d -p 50871:22 -v ~:/workspace nv-tf1"
+# alias docker-login-tf1="docker exec -it tf1 bash"
 
 FROM nvcr.io/nvidia/tensorflow:20.11-tf1-py3
 
@@ -42,6 +48,8 @@ COPY ./authorized_keys /root/.ssh
 # RUN  echo 'test:test' | chpasswd
 # use password
 # sed -i "s/PasswordAuthentication no/#PasswordAuthentication yes/" /etc/ssh/sshd_config
+
+VOLUME /root/.vscode-server 
 
 # NOTE 需要使用默认启动，而不是bash，否则sshd服务没有挂载
 CMD ["/usr/sbin/sshd","-D"]
