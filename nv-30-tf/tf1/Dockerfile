@@ -8,7 +8,7 @@
 
 # usage
 # specify a volume for vscode-server to avoid redownloding vscode when connect to docker by vscode
-# alias docker-start-tf1="docker run -v tf1-vscode-server:/root/.vscode-server --gpus all --restart=always --name     tf1 -d -p 50871:22 -v ~:/workspace nv-tf1"
+# alias docker-start-tf1="docker run -v /etc/localtime:/etc/localtime -v tf1-vscode-server:/root/.vscode-server --gpus all --restart=always --name     tf1 -d -p 50871:22 -v ~:/workspace nv-tf1"
 # alias docker-login-tf1="docker exec -it tf1 bash"
 
 FROM nvcr.io/nvidia/tensorflow:20.11-tf1-py3
