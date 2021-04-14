@@ -4,6 +4,7 @@
 # where to find base container https://ngc.nvidia.com/catalog/containers/nvidia:tensorflow
 # where to find docker info https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel_20-11.html#rel_20-11
 # provide py3, tf1.15.4
+# tf1.15.4, 1.15.5, tf2.4 bert4keras的unilm，padding都有精度问题(1e-3), 建议降低tf版本到1.15.0，不使用3090
 # cuda CUDA 11.1.0 for rtx 3090
 
 FROM nvcr.io/nvidia/tensorflow:20.11-tf1-py3
