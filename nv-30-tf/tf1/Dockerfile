@@ -3,10 +3,11 @@
 # use for 91 machine with rtx 3090
 # where to find base container https://ngc.nvidia.com/catalog/containers/nvidia:tensorflow
 # where to find docker info https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel_20-11.html#rel_20-11
-# provide py3, tf1.5
+# provide py3, tf1.15.4
 # cuda CUDA 11.1.0 for rtx 3090
 
-# usage
+FROM nvcr.io/nvidia/tensorflow:20.11-tf1-py3
+
 # specify a volume for vscode-server to avoid redownloding vscode when connect to docker by vscode
 VOLUME /root/.vscode-server 
 # specify a volume for .jupyter for config
@@ -14,10 +15,11 @@ VOLUME /root/.jupyter
 # 50871 for ssh
 # 50872 for jupyter
 # ro means read only
+
+# usage
 # alias docker-start-tf1="docker run -v /etc/localtime:/etc/localtime:ro -v tf1-vscode-server:/root/.vscode-server --gpus all --restart=always --name tf1 -d -p 50871:22 -p 50871:8888 -v ~:/workspace nv-tf1"
 # alias docker-login-tf1="docker exec -it tf1 bash"
 
-FROM nvcr.io/nvidia/tensorflow:20.11-tf1-py3
 
 # setup my vim
 # download from https://codeload.github.com/amix/vimrc/zip/refs/heads/master
@@ -78,6 +80,8 @@ COPY ./.jupyter /root/.jupyter
 # https://ipywidgets.readthedocs.io/en/stable/user_install.html
 RUN yes | pip install ipywidgets
 RUN jupyter nbextension enable --py widgetsnbextension
+
+RUN yes | pip install xs-lib==0.0.11
 
 COPY ./cat.bashrc /root/cat.bashrc
 RUN cat /root/cat.bashrc >> /root/.bashrc
