@@ -1,5 +1,5 @@
-nv-30-tf/*/authorized_keys
-nv-30-tf/*/jupyter-vim-binding-master/
-nv-30-tf/*/.jupyter/
-nv-30-tf/*/master.zip
-nv-30-tf/*/vimrc-master/
+nv/*/authorized_keys
+nv/*/jupyter-vim-binding-master/
+nv/*/.jupyter/
+nv/*/master.zip
+nv/*/vimrc-master/
