@@ -82,7 +82,7 @@ COPY ./.jupyter /root/.jupyter
 RUN yes | pip install ipywidgets
 RUN jupyter nbextension enable --py widgetsnbextension
 
-RUN yes | pip install xs-lib==0.0.11
+RUN yes | pip install xs-lib==0.0.11 seaborn
 
 COPY ./cat.bashrc /root/cat.bashrc
 RUN cat /root/cat.bashrc >> /root/.bashrc
