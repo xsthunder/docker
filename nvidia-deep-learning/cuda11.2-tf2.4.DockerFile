@@ -2,6 +2,7 @@
 # where to find docker info https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel_21-02.html#rel_21-02
 # provide py3, tf2.4
 # cuda CUDA 11.2.1 for rtx 3090
+FROM nvcr.io/nvidia/tensorflow:21.03-tf2-py3
 
 # specify a volume for vscode-server to avoid redownloding vscode when connect to docker by vscode
 VOLUME /root/.vscode-server 
