@@ -3,3 +3,10 @@ nv/*/jupyter-vim-binding-master/
 nv/*/.jupyter/
 nv/*/master.zip
 nv/*/vimrc-master/
+
+
+nvidia-deep-learning/authorized_keys
+nvidia-deep-learning/jupyter-vim-binding-master/
+nvidia-deep-learning/.jupyter/
+nvidia-deep-learning/master.zip
+nvidia-deep-learning/vimrc-master/
