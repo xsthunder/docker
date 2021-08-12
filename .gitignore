@@ -1,12 +1,4 @@
-nv/*/authorized_keys
-nv/*/jupyter-vim-binding-master/
-nv/*/.jupyter/
-nv/*/master.zip
-nv/*/vimrc-master/
-
-
-nvidia-deep-learning/authorized_keys
-nvidia-deep-learning/jupyter-vim-binding-master/
-nvidia-deep-learning/.jupyter/
-nvidia-deep-learning/master.zip
-nvidia-deep-learning/vimrc-master/
+nvidia-deep-learning/docker-files/authorized_keys
+nvidia-deep-learning/docker-files/jupyter-vim-binding-master/
+nvidia-deep-learning/docker-files/.jupyter/
+nvidia-deep-learning/docker-files/vimrc-master/
