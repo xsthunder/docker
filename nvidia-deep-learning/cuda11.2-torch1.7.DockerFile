@@ -64,4 +64,4 @@ COPY ./test-ssh.sh /root/test-ssh.sh
 
 COPY ./test-script /root/
 
-CMD jupyter notebook
+CMD service ssh start && jupyter notebook
