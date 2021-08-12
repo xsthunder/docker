@@ -1,3 +1,3 @@
 set -x
 set -e
-yes | pip install xs-lib==0.0.11
+yes | pip install xs-lib==0.1.0
