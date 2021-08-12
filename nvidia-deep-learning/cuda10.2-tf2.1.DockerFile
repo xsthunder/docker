@@ -15,51 +15,51 @@ EXPOSE 22
 
 # setup my vim
 # download from https://codeload.github.com/amix/vimrc/zip/refs/heads/master
-COPY ./vimrc-master /root/.vim_runtime
+COPY ./docker-files/vimrc-master /root/.vim_runtime
 RUN sh /root/.vim_runtime/install_awesome_vimrc.sh
 
 # for gfw
 
 # sshd security
 RUN apt update 
-COPY ./apt-basic.sh /root/apt-basic.sh
+COPY ./docker-files/apt-basic.sh /root/apt-basic.sh
 RUN /root/apt-basic.sh
 
-COPY ./pip-basic.sh /root/pip-basic.sh 
+COPY ./docker-files/pip-basic.sh /root/pip-basic.sh 
 RUN /root/pip-basic.sh 
 
-COPY ./pip-tf.sh /root/pip-tf.sh 
+COPY ./docker-files/pip-tf.sh /root/pip-tf.sh 
 RUN /root/pip-tf.sh 
 
-COPY ./pip-common.sh /root/pip-common.sh 
+COPY ./docker-files/pip-common.sh /root/pip-common.sh 
 RUN /root/pip-common.sh 
 
 # setup my vim for jupyter
 # download from https://github.com/lambdalisue/jupyter-vim-binding
 RUN mkdir -p $(jupyter --data-dir)/nbextensions
-COPY ./jupyter-vim-binding-master /root/.local/share/jupyter/nbextensions/vim_binding
+COPY ./docker-files/jupyter-vim-binding-master /root/.local/share/jupyter/nbextensions/vim_binding
 
 # u can copy ~/.jupyter:/root/.jupyter
 # but firt install pip install jupyter-tensorboard in host
 # https://github.com/lspvic/jupyter_tensorboard
 # jupyter config for root
-COPY ./.jupyter /root/.jupyter
+COPY ./docker-files/.jupyter /root/.jupyter
 
-COPY ./jupyter-nbextension-enable.sh /root/jupyter-nbextension-enable.sh 
+COPY ./docker-files/jupyter-nbextension-enable.sh /root/jupyter-nbextension-enable.sh 
 RUN bash /root/jupyter-nbextension-enable.sh 
 
-COPY ./cat.bashrc /root/cat.bashrc
+COPY ./docker-files/cat.bashrc /root/cat.bashrc
 RUN echo "export XS_DOCKER_HOST_NAME=tf2.1-cuda10" >> /root/.bashrc
 RUN cat /root/cat.bashrc >> /root/.bashrc
 
 
 # add my labtop ssh pub key
 RUN mkdir /root/.ssh
-COPY ./authorized_keys /root/.ssh
+COPY ./docker-files/authorized_keys /root/.ssh
 
-COPY ./test-ssh.sh /root/test-ssh.sh 
+COPY ./docker-files/test-ssh.sh /root/test-ssh.sh 
 # RUN bash /root/test-ssh.sh # or excute by docker exec
 
-COPY ./test-script /root/
+COPY ./docker-files/test-script /root/
 
 CMD service ssh start && jupyter notebook
