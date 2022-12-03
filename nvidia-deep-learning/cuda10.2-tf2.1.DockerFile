@@ -52,6 +52,7 @@ COPY ./docker-files/cat.bashrc /root/cat.bashrc
 RUN echo "export XS_DOCKER_HOST_NAME=tf2.1-cuda10" >> /root/.bashrc
 RUN cat /root/cat.bashrc >> /root/.bashrc
 
+COPY ./docker-files/last-common.sh /root/last-common.sh 
 
 # add my labtop ssh pub key
 RUN mkdir /root/.ssh

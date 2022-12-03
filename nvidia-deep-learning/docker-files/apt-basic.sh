@@ -8,3 +8,4 @@ apt install openssh-server sudo -y
 sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config
 service ssh start
 apt install tree screen graphviz -y
+
